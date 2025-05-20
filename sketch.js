@@ -32,18 +32,40 @@ function draw() {
   // Draw the webcam video
   image(video, 0, 0, width, height);
 
-  // Draw all the tracked hand points
-  for (let i = 0; i < hands.length; i++) {
-    let hand = hands[i];
-    for (let j = 0; j < hand.keypoints.length; j++) {
-      let keypoint = hand.keypoints[j];
-      fill(0, 255, 0);
-      noStroke();
-      circle(keypoint.x, keypoint.y, 10);
-    }
-  }
-
   //
+
+  const mano_1 = hands[0];
+  const mano_2 = hands[1];
+
+  if (mano_1 && mano_2) {
+    const pollice_1 = mano_1.keypoints[4];
+    const indice_1 = mano_1.keypoints[8];
+
+    const distanza_mano_1 = dist(
+      pollice_1.x,
+      pollice_1.y,
+      indice_1.x,
+      indice_1.y
+    );
+
+    const pollice_2 = mano_2.keypoints[4];
+    const indice_2 = mano_2.keypoints[8];
+
+    const distanza_mano_2 = dist(
+      pollice_2.x,
+      pollice_2.y,
+      indice_2.x,
+      indice_2.y
+    );
+
+    textAlign("center");
+    textSize(distanza_mano_1);
+    fill(distanza_mano_2, 0, 0);
+    text("Ciao", width / 2, height);
+
+    line(pollice_1.x, pollice_1.y, indice_1.x, indice_1.y);
+    line(pollice_2.x, pollice_2.y, indice_2.x, indice_2.y);
+  }
 
   // strokeWeight(4);
 
