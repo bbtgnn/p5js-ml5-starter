@@ -13,6 +13,7 @@ declare namespace ml5 {
 
   interface HandPose {
     detectStart(video: any, callback: (results: Hand[]) => void): void;
+    detectStop(): void;
   }
 
   interface Hand {
