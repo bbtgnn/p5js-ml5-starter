@@ -10,6 +10,7 @@ function preload() {
   // Load the handPose model
   handPose = ml5.handPose({
     flipped: true,
+    maxHands: 2,
   });
 }
 
@@ -25,6 +26,7 @@ function setup() {
   // start detecting hands from the webcam video
   handPose.detectStart(video, function (results) {
     hands = results;
+    console.log(results);
   });
 }
 
