@@ -26,7 +26,6 @@ function setup() {
   // start detecting hands from the webcam video
   handPose.detectStart(video, function (results) {
     hands = results;
-    console.log(results);
   });
 }
 
