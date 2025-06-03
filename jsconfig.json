@@ -7,6 +7,7 @@
     "./p5/types/ml5.d.ts"
   ],
   "compilerOptions": {
-    "checkJs": true
+    "checkJs": true,
+    "target": "es2023"
   }
 }

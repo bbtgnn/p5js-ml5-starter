@@ -16,13 +16,52 @@ declare namespace ml5 {
     detectStop(): void;
   }
 
-  interface Hand {
-    keypoints: Keypoint[];
-  }
-
   interface Keypoint {
     x: number;
     y: number;
+    name: string;
+  }
+
+  interface Keypoint3D {
+    x: number;
+    y: number;
+    z: number;
+    name: string;
+  }
+
+  interface KeypointCombined {
+    x: number;
+    y: number;
+    x3D: number;
+    y3D: number;
+    z3D: number;
+  }
+
+  interface Hand {
+    keypoints: Keypoint[];
+    keypoints3D: Keypoint3D[];
+    handedness: "Left" | "Right";
+    wrist: KeypointCombined;
+    thumb_cmc: KeypointCombined;
+    thumb_mcp: KeypointCombined;
+    thumb_ip: KeypointCombined;
+    thumb_tip: KeypointCombined;
+    index_finger_mcp: KeypointCombined;
+    index_finger_pip: KeypointCombined;
+    index_finger_dip: KeypointCombined;
+    index_finger_tip: KeypointCombined;
+    middle_finger_mcp: KeypointCombined;
+    middle_finger_pip: KeypointCombined;
+    middle_finger_dip: KeypointCombined;
+    middle_finger_tip: KeypointCombined;
+    ring_finger_mcp: KeypointCombined;
+    ring_finger_pip: KeypointCombined;
+    ring_finger_dip: KeypointCombined;
+    ring_finger_tip: KeypointCombined;
+    pinky_finger_mcp: KeypointCombined;
+    pinky_finger_pip: KeypointCombined;
+    pinky_finger_dip: KeypointCombined;
+    pinky_finger_tip: KeypointCombined;
   }
 }
 
